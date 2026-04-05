@@ -1,7 +1,7 @@
-def get_mask_card_number(number_card: [str | int] = -1) -> str:
+def get_mask_card_number(number_card: str | int = -1) -> str:
     ''' функция возвращает скрытый номер карты '''
     if number_card != -1:
-        if str(number_card).isdecimal() != False:
+        if str(number_card).isdecimal():  # в строке только цифры
             counter = 0
             step = 4
             number_cart_mask = ""
@@ -16,7 +16,7 @@ def get_mask_card_number(number_card: [str | int] = -1) -> str:
             if counter != 16:
                 return "Error_01"  # не верное количесвто символов в номере карты
         else:
-            return "Error_02"  # введён не числовой символ в номере карты
+            return "Error_02"  # введён не допустимый тип данных или не числовой символ в номере карты
     else:
         return "Error_03"  # не введён номер карты
     return number_cart_mask
@@ -25,10 +25,10 @@ def get_mask_card_number(number_card: [str | int] = -1) -> str:
 # --------------------------------------------------------------------
 
 
-def get_mask_account(number_account: [str | int] = -1) -> str:
+def get_mask_account(number_account: str | int = -1) -> str:
     ''' функция возвращает скрытый номер счёта '''
     if number_account != -1:
-        if str(number_account).isdecimal() != False:
+        if str(number_account).isdecimal():  # в строке только цифры
             counter = 0
             step = 4
             number_account_mask = ""
@@ -47,7 +47,7 @@ def get_mask_account(number_account: [str | int] = -1) -> str:
             if counter != 20:
                 return "Error_04"  # не верное количесвто символов в номере счёта
         else:
-            return "Error_05"  # введён не числовой символ в номере счёта
+            return "Error_05"  # введён не допустимый тип данных или не числовой символ в номере счёта
     else:
         return "Error_06"  # не введён номер счёта
     return number_account_mask
