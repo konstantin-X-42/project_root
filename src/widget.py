@@ -29,10 +29,9 @@ def get_date(date_str: str = "") -> str:
                 return "Error_08 - ошибка даты не существует"
             date_list.append(date_list[1])  # добавление элемента с индексом 1 в конец
             date_list.append(date_list[0])  # добавление элемента с индексом 0 в конец
-            del date_list[0]  # удаление элемента с индексом 0
-            del date_list[0]  # удаление элемента с индексом 0
+            del date_list[0]
+            del date_list[0]
             date_str = ".".join(date_list)
-            # if date_str.isdecimal():  # в строке только цифры
             return date_str
         else:
             return "Error_09 - введён не допустимый тип данных"
