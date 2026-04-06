@@ -12,8 +12,28 @@ def mask_account_card(card_or_account: str) -> str:
 
 
 # --------------------------------------------------------------------
-# В том же модуле создайте функцию get_date, которая принимает на вход строку с датой в формате
-# "2024-03-11T02:26:18.671407"
-#  и возвращает строку с датой в формате "ДД.ММ.ГГГГ" ("11.03.2024")
-def get_date():
-    pass
+
+def get_date(date_str: str = False) -> str:
+    """ функция возвращает дату в формате 'ДД.ММ.ГГГГ' """
+    if date_str:
+        if type(date_str) is str:
+            date_output = date_str[:10]
+            date_list = date_output.split("-")  # преобразование в список строк
+            for i in date_list:
+                if not i.isdecimal():  # в строке только цифры
+                    return "Error_07 - в дате не числовой символ"
+            if 0 < int(date_list[2]) < 32 and 0 < int(date_list[1]) < 13 and 1900 < int(date_list[0]) < 2100:
+                pass
+            else:
+                return "Error_08 - ошибка даты не существует"
+            date_list.append(date_list[1])  # добавление элемента с индексом 1 в конец
+            date_list.append(date_list[0])  # добавление элемента с индексом 0 в конец
+            del date_list[0]  # удаление элемента с индексом 0
+            del date_list[0]  # удаление элемента с индексом 0
+            date_str = ".".join(date_list)
+            # if date_str.isdecimal():  # в строке только цифры
+            return date_str
+        else:
+            return "Error_09 - введён не допустимый тип данных"
+    else:
+        return "Error_10 - в функцию подаётся пустая строка"
