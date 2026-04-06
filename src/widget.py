@@ -1,14 +1,13 @@
-from src.masks import get_mask_card_number
-from src.masks import get_mask_account
+from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(card_or_account: str) -> str:
-    """ функция маскирует номер карты или счёта """
+    """функция маскирует номер карты или счёта"""
     if "Счет" in card_or_account:
         mask = get_mask_account(card_or_account[5:])
     else:
         mask = get_mask_card_number(card_or_account[-16:])
-        print(card_or_account[-16:].strip(' '))
+        print(card_or_account[-16:].strip(" "))
     return mask
 
 

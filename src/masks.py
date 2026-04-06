@@ -1,5 +1,5 @@
 def get_mask_card_number(number_card: str | int = -1) -> str:
-    """ функция возвращает скрытый номер карты в виде: 8990 92** **** 5229 """
+    """функция возвращает скрытый номер карты в виде: 8990 92** **** 5229"""
     if number_card != -1:
         if str(number_card).isdecimal():  # в строке только цифры
             counter = 0
@@ -26,7 +26,7 @@ def get_mask_card_number(number_card: str | int = -1) -> str:
 
 
 def get_mask_account(number_account: str | int = -1) -> str:
-    """ функция возвращает скрытый номер счёта в виде: ** 5560 """
+    """функция возвращает скрытый номер счёта в виде: ** 5560"""
     if number_account != -1:
         if str(number_account).isdecimal():  # в строке только цифры
             counter = 0
@@ -41,9 +41,7 @@ def get_mask_account(number_account: str | int = -1) -> str:
                 if step == counter != 20:
                     step += 4
                     if 14 < counter:  # исключаем пробелы первых 3-х step
-                        number_account_mask += (
-                            " "  # при выполнении добавляем пробел с шагом в 4 символа
-                        )
+                        number_account_mask += " "  # при выполнении добавляем пробел с шагом в 4 символа
             if counter != 20:
                 return "Error_04 - не верное количество символов в номере счёта"
         else:
