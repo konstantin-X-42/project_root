@@ -13,8 +13,9 @@ def mask_account_card(card_or_account: str) -> str:
 
 # --------------------------------------------------------------------
 
-def get_date(date_str: str = False) -> str:
-    """ функция возвращает дату в формате 'ДД.ММ.ГГГГ' """
+
+def get_date(date_str: str = "") -> str:
+    """функция возвращает дату в формате 'ДД.ММ.ГГГГ'"""
     if date_str:
         if type(date_str) is str:
             date_output = date_str[:10]
