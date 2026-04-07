@@ -24,15 +24,14 @@ def get_date(date_str: str = "") -> str:
                 if not i.isdecimal():  # в строке только цифры
                     return "Error_07 - в дате не числовой символ"
             if 0 < int(date_list[2]) < 32 and 0 < int(date_list[1]) < 13 and 1900 < int(date_list[0]) < 2100:
-                pass
+                date_list.append(date_list[1])  # добавление элемента с индексом 1 в конец
+                date_list.append(date_list[0])  # добавление элемента с индексом 0 в конец
+                del date_list[0]
+                del date_list[0]
+                date_str = ".".join(date_list)
+                return date_str
             else:
-                return "Error_08 - ошибка даты не существует"
-            date_list.append(date_list[1])  # добавление элемента с индексом 1 в конец
-            date_list.append(date_list[0])  # добавление элемента с индексом 0 в конец
-            del date_list[0]
-            del date_list[0]
-            date_str = ".".join(date_list)
-            return date_str
+                return "Error_08 - цифры за пределами формата даты"
         else:
             return "Error_09 - введён не допустимый тип данных"
     else:
