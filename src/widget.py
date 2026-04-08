@@ -31,7 +31,7 @@ def get_date(date_str: str = "") -> str:
                 date_str = ".".join(date_list)
                 return date_str
             else:
-                return "Error_08 - цифры за пределами формата даты"
+                return "Error_08 - значения цифр за пределами формата даты"
         else:
             return "Error_09 - введён не допустимый тип данных"
     else:
