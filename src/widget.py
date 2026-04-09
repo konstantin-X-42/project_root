@@ -7,7 +7,6 @@ def mask_account_card(card_or_account: str) -> str:
         mask = get_mask_account(card_or_account[5:])
     else:
         mask = get_mask_card_number(card_or_account[-16:])
-        print(card_or_account[-16:].strip(" "))
     return mask
 
 
